@@ -3,297 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibrant Yahoo Clone</title>
+    <title>Yahoo Clone</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#7e22ce',
-                        secondary: '#4f46e5',
-                        accent: '#f97316',
-                        highlight: '#ec4899',
-                        info: '#0ea5e9'
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        body { 
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
-        .search-bar:focus-within {
-            box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.3);
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .nav-item {
-            transition: all 0.3s ease;
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-        .nav-item:hover {
-            transform: translateY(-2px);
+        .hover-scale {
+            transition: transform 0.3s ease;
         }
-        .trending-item {
-            transition: all 0.2s ease;
-        }
-        .trending-item:hover {
-            transform: scale(1.02);
-            background-color: rgba(255, 255, 255, 0.8);
+        .hover-scale:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-primary to-secondary text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200">
-                    Yahoo!
-                </div>
-                <div class="ml-4 hidden md:flex space-x-4">
-                    <a href="#" class="hover:text-purple-200 transition">Mail</a>
-                    <a href="#" class="hover:text-purple-200 transition">News</a>
-                    <a href="#" class="hover:text-purple-200 transition">Finance</a>
-                    <a href="#" class="hover:text-purple-200 transition">Sports</a>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Header -->
+        <header class="flex items-center justify-between mb-12">
+            <div class="flex items-center space-x-2">
+                <h1 class="text-5xl font-bold text-white drop-shadow-[0_0_0.3rem_#ffffff70]">yahoo!</h1>
             </div>
-            <div class="flex items-center space-x-4">
-                <button class="p-2 rounded-full hover:bg-white/20 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="flex items-center space-x-6">
+                <button class="text-white hover:text-yellow-300 transition-all transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </button>
-                <button class="p-2 rounded-full hover:bg-white/20 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button class="text-white hover:text-yellow-300 transition-all transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
-                <div class="flex items-center bg-white/20 px-3 py-1 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" />
+                <div class="glass rounded-2xl px-4 py-2 flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
-                    <span class="text-sm font-medium">23°C</span>
-                    <span class="text-xs ml-1 opacity-80">Barasat</span>
+                    <span class="text-white font-medium text-lg">23°C</span>
+                    <span class="text-white/80 text-sm">Barasat</span>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
         <!-- Greeting -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-highlight">
-                Good evening!
-            </h1>
-            <p class="text-gray-600" id="current-date">Today is March 22.</p>
+        <div class="text-center mb-12">
+            <h2 class="text-5xl font-bold text-white mb-3 drop-shadow-[0_0_0.3rem_#ffffff70]">Good evening!</h2>
+            <p class="text-white/90 text-xl">Today is March 22</p>
         </div>
 
         <!-- Search Bar -->
-        <div class="max-w-2xl mx-auto mb-10">
-            <div class="search-bar bg-white rounded-full flex items-center px-4 py-3 shadow-lg border-2 border-primary/30 transition duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        <div class="relative max-w-2xl mx-auto mb-16">
+            <input type="text" placeholder="Search the web" 
+                class="w-full px-8 py-5 rounded-2xl glass text-white placeholder-white/70 text-lg focus:outline-none focus:ring-4 focus:ring-white/30 transition-all">
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-yellow-300 transition-all transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                 </svg>
-                <input type="text" placeholder="Search the web" class="flex-1 outline-none text-gray-700">
-                <button class="ml-3 text-gray-400 hover:text-primary transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                    </svg>
-                </button>
-            </div>
+            </button>
         </div>
 
-        <!-- Navigation Icons -->
-        <div class="flex justify-center flex-wrap gap-4 mb-10">
-            <a href="#" class="nav-item flex flex-col items-center p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl shadow-md hover:shadow-lg w-24">
-                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
+        <!-- Quick Links -->
+        <div class="flex justify-center space-x-12 mb-16">
+            <a href="#" class="group hover-scale">
+                <div class="glass rounded-2xl p-6 flex flex-col items-center space-y-3">
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </div>
+                    <span class="text-white font-medium">Cricket</span>
                 </div>
-                <span class="text-sm font-medium text-gray-700">Cricket</span>
             </a>
-            <a href="#" class="nav-item flex flex-col items-center p-4 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-xl shadow-md hover:shadow-lg w-24">
-                <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-                    </svg>
+            <a href="#" class="group hover-scale">
+                <div class="glass rounded-2xl p-6 flex flex-col items-center space-y-3">
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-pink-500 to-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                        </svg>
+                    </div>
+                    <span class="text-white font-medium">Movies</span>
                 </div>
-                <span class="text-sm font-medium text-gray-700">Movies</span>
             </a>
-            <a href="#" class="nav-item flex flex-col items-center p-4 bg-gradient-to-br from-accent/10 to-accent/20 rounded-xl shadow-md hover:shadow-lg w-24">
-                <div class="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
+            <a href="#" class="group hover-scale">
+                <div class="glass rounded-2xl p-6 flex flex-col items-center space-y-3">
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                    </div>
+                    <span class="text-white font-medium">News</span>
                 </div>
-                <span class="text-sm font-medium text-gray-700">News</span>
             </a>
-            <a href="#" class="nav-item flex flex-col items-center p-4 bg-gradient-to-br from-highlight/10 to-highlight/20 rounded-xl shadow-md hover:shadow-lg w-24">
-                <div class="w-10 h-10 bg-highlight/20 rounded-full flex items-center justify-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-highlight" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                    </svg>
+            <a href="#" class="group hover-scale">
+                <div class="glass rounded-2xl p-6 flex flex-col items-center space-y-3">
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-yellow-500 to-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        </svg>
+                    </div>
+                    <span class="text-white font-medium">Horoscope</span>
                 </div>
-                <span class="text-sm font-medium text-gray-700">Horoscope</span>
             </a>
         </div>
 
         <!-- Trending Section -->
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="bg-gradient-to-r from-primary to-secondary text-white py-3 px-6">
-                    <h2 class="text-xl font-semibold">Trending now</h2>
+        <div class="glass rounded-3xl p-10">
+            <h3 class="text-3xl font-bold text-white mb-8 drop-shadow-[0_0_0.3rem_#ffffff70]">Trending now</h3>
+            <div class="grid grid-cols-2 gap-x-16 gap-y-6">
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">1.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Amit Shah</a>
                 </div>
-                <div class="grid md:grid-cols-2 gap-2 p-4">
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">1.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Amit Shah</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">6.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Osama Tabash</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">2.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Delimitation Meet</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">7.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Avneet Kaur</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">3.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Karnataka Bandh</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">8.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Ganesh Acharya</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">4.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Yashwant Verma</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">9.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Varun Chakravarthy</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">5.</span>
-                        <span class="text-gray-800 hover:text-primary transition">Chandrababu Naidu</span>
-                    </div>
-                    <div class="trending-item flex items-center p-3 rounded-lg hover:bg-gray-50">
-                        <span class="text-lg font-bold text-primary mr-3">10.</span>
-                        <span class="text-gray-800 hover:text-primary transition">IPL 2025</span>
-                    </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">6.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Osama Tabash</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">2.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Delimitation Meet</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">7.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Avneet Kaur</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">3.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Karnataka Bandh</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">8.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Ganesh Acharya</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">4.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Yashwant Verma</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">9.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Varun Chakravarthy</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">5.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">Chandrababu Naidu</a>
+                </div>
+                <div class="flex items-center space-x-4 group hover-scale">
+                    <span class="text-2xl font-bold text-yellow-300">10.</span>
+                    <a href="#" class="text-white group-hover:text-yellow-300 transition-colors text-lg">IPL 2025</a>
                 </div>
             </div>
         </div>
-
-        <!-- News Cards -->
-        <div class="grid md:grid-cols-3 gap-6 mt-10">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
-                <div class="h-40 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">Latest News</h3>
-                    <p class="text-gray-600 text-sm">Stay updated with the latest news from around the world.</p>
-                    <button class="mt-4 text-primary font-medium text-sm hover:underline">Read more</button>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
-                <div class="h-40 bg-gradient-to-r from-secondary to-info flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">Finance Updates</h3>
-                    <p class="text-gray-600 text-sm">Track market trends and manage your investments.</p>
-                    <button class="mt-4 text-secondary font-medium text-sm hover:underline">View markets</button>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
-                <div class="h-40 bg-gradient-to-r from-accent to-highlight flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">Entertainment</h3>
-                    <p class="text-gray-600 text-sm">Discover the latest movies, shows, and celebrity news.</p>
-                    <button class="mt-4 text-accent font-medium text-sm hover:underline">Explore now</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16 py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 text-purple-300">Yahoo!</h3>
-                    <p class="text-gray-400 text-sm">Your gateway to everything that matters.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3 text-gray-300">Products</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mail</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">News</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Finance</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sports</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3 text-gray-300">Company</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">About</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3 text-gray-300">Connect</h4>
-                    <div class="flex space-x-3 mb-4">
-                        <a href="#" class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-gray-400 text-xs">© 2025 Yahoo. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Update current date
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateElement = document.getElementById('current-date');
-            const now = new Date();
-            const options = { month: 'long', day: 'numeric' };
-            dateElement.textContent = `Today is ${now.toLocaleDateString('en-US', options)}.`;
-        });
-    </script>
+    </div>
 </body>
 </html>
